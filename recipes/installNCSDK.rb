@@ -26,12 +26,3 @@ execute 'make install' do
   command 'make install'
   action :run
 end
-execute 'source ~/.bashrc' do
-  command 'source ~/.bashrc'
-  action :run
-end
-execute 'make examples' do
-  cwd '/NeuralComputeStick/workspace/ncsdk'
-  command 'make example'
-  action :run
-end

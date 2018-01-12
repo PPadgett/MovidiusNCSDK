@@ -1,12 +1,6 @@
 ---
 driver:
   name: vagrant
-  Customize:
-    memory: 2048
-    usb: on
-    usbxhci: on
-    gui: on
-
 
 provisioner:
   name: chef_zero
@@ -20,6 +14,17 @@ verifier:
 
 platforms:
   - name: ubuntu-16.04
+    driver:
+      gui: true
+      customize:
+        memory: 2048
+        vram: 256
+        usb: 'on'
+        usbxhci: 'on'
+#  Issue with USB filter Vagrant Option proccessing correctly in Kitchen yml file.
+#    usbfilter:
+#      - name: 'Movidius MA2X5X [0001]'
+#        vendorid: '03E7'
 
 suites:
   - name: default
