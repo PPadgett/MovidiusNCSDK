@@ -2,13 +2,13 @@
 directory '/NeuralComputeStick' do
   owner 'root'
   group 'root'
-  mode '0777'
+  mode '0655'
   action :create
 end
 directory '/NeuralComputeStick/workspace' do
   owner 'root'
   group 'root'
-  mode '0777'
+  mode '0655'
   action :create
 end
 git '/NeuralComputeStick/workspace/ncsdk' do
@@ -21,8 +21,17 @@ git '/NeuralComputeStick/workspace/ncappzoo' do
   revision 'master'
   action :sync
 end
-execute 'make install' do
+execute 'Make_Install' do
   cwd '/NeuralComputeStick/workspace/ncsdk'
-  command 'make install'
+  command 'sudo -H make install'
+  action :run
+end
+execute 'bash' do
+  command 'exec bash'
+  action :run
+end
+execute 'Make_Examples' do
+  cwd '/NeuralComputeStick/workspace/ncsdk'
+  command 'sudo -H make examples'
   action :run
 end
