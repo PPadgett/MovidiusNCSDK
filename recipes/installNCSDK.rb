@@ -27,7 +27,7 @@ execute 'Make_Install' do
   action :run
 end
 execute 'bash' do
-  command 'exec bash'
+  command 'export PYTHONPATH=$env:"/opt/movidius/caffe/python":$PYTHONPATH'
   action :run
 end
 execute 'Make_Examples' do

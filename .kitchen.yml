@@ -1,7 +1,7 @@
 ---
 driver:
   name: vagrant
-
+ 
 provisioner:
   name: chef_zero
   # You may wish to disable always updating cookbooks in CI or other testing environments.
@@ -15,12 +15,14 @@ verifier:
 platforms:
   - name: ubuntu-16.04
     driver:
-      gui: true
-      customize:
-        memory: 2048
-        vram: 256
-        usb: 'on'
-        usbxhci: 'on'
+      vagrantfiles:
+        - VagrantfileUSB.rb
+      # gui: true
+      # customize:
+      #   memory: 2048
+      #   vram: 256
+      #   usb: 'on'
+      #   usbxhci: 'on'
 #  Issue with USB filter Vagrant Option proccessing correctly in Kitchen yml file.
 #    usbfilter:
 #      - name: 'Movidius MA2X5X [0001]'
